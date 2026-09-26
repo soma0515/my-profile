@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こども未来ラボ</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <!-- ヘッダー：スマホは縦並び、md以上（768px〜）で横並び -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div>
+        <h1 class="text-lg font-bold text-emerald-700">🌱 NPO法人 こども未来ラボ</h1>
+        <!-- 情報量の出し分け①：キャッチコピーはPC幅（md以上）でのみ表示し、スマホでは省略してヘッダーを圧迫しない -->
+        <p class="hidden md:block text-xs text-slate-400 mt-0.5">すべての子どもに、学びの居場所を。</p>
+      </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-2 md:gap-6 text-sm text-slate-600">
+          <li><a href="#about" class="hover:text-emerald-700">私たちについて</a></li>
+          <li><a href="#activities" class="hover:text-emerald-700">活動内容</a></li>
+          <li><a href="#join" class="hover:text-emerald-700">参加する</a></li>
+          <li><a href="#contact" class="hover:text-emerald-700">お問い合わせ</a></li>
+          <!-- 情報量の出し分け②：電話番号はPC幅でのみナビに追加表示。スマホでは縦並びナビが長くなりすぎるため省略 -->
+          <li class="hidden md:block text-slate-400">|</li>
+          <li class="hidden md:block text-slate-400">TEL 000-0000-0000</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="bg-emerald-50">
+    <div class="max-w-5xl mx-auto px-4 py-14 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
+        すべての子どもに、学びの居場所を。
+      </h2>
+      <p class="text-sm md:text-base text-slate-600 max-w-md mx-auto leading-relaxed">
+        こども未来ラボは、家庭でも学校でもない「第三の居場所」を地域につくる活動をしています。
+      </p>
+      <!-- 情報量の出し分け③：設立年や活動実績などの補足情報はPC幅でのみ表示。スマホでは要点だけに絞る -->
+      <p class="hidden md:block text-xs text-slate-500 mt-4">
+        2015年設立 ｜ 累計参加者数 3,200人以上 ｜ 活動拠点：関東3県
+      </p>
+    </div>
+  </section>
+
+  <!-- 活動内容：カードエリア -->
+  <main id="activities" class="max-w-5xl mx-auto px-4 py-14">
+    <h2 class="text-lg font-bold text-slate-800 mb-6 text-center">私たちの活動</h2>
+
+    <!-- スマホ1列 / md（768px〜）で3列 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <span class="text-4xl">📚</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">放課後学習支援</h3>
+        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+          地域のボランティアと一緒に、宿題や勉強をサポートする無料の学習会です。
+        </p>
+        <!-- 情報量の出し分け④：開催情報の詳細はPC幅でのみ表示し、スマホではカードを簡潔に保つ -->
+        <p class="hidden md:block text-xs text-slate-400 mt-3 pt-3 border-t border-slate-100">
+          毎週火・木 16:00〜18:00／対象：小学生／参加無料
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <span class="text-4xl">🍙</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">こども食堂</h3>
+        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+          月2回、誰でも参加できる食堂を開催。栄養のある食事とあたたかい時間を届けます。
+        </p>
+        <p class="hidden md:block text-xs text-slate-400 mt-3 pt-3 border-t border-slate-100">
+          第2・第4土曜 17:30〜19:00／どなたでも参加可／1食300円
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <span class="text-4xl">🌳</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">自然体験プログラム</h3>
+        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+          季節ごとに野外活動を実施。自然の中で学ぶ機会を子どもたちに提供しています。
+        </p>
+        <p class="hidden md:block text-xs text-slate-400 mt-3 pt-3 border-t border-slate-100">
+          年4回（春夏秋冬）開催／要事前申込／保険料500円
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 参加を促すセクション -->
+  <section id="join" class="bg-emerald-700">
+    <div class="max-w-5xl mx-auto px-4 py-12 text-center">
+      <h2 class="text-xl font-bold text-white mb-3">一緒に活動しませんか？</h2>
+      <p class="text-sm text-emerald-50 mb-6">
+        ボランティア・寄付、どちらの形でも応援していただけます。
+      </p>
+      <a href="#contact" class="inline-block bg-white text-emerald-700 text-sm font-semibold px-6 py-3 rounded-lg shadow hover:bg-emerald-50 transition">
+        お問い合わせはこちら
+      </a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer id="contact" class="bg-slate-800">
+    <div class="max-w-5xl mx-auto px-4 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-slate-300 text-xs">
+      <div>
+        <p>NPO法人 こども未来ラボ</p>
+        <!-- 情報量の出し分け⑤：住所や登録番号などの詳細情報はPC幅でのみ表示し、スマホでは団体名だけに絞る -->
+        <p class="hidden md:block text-slate-400 mt-1">
+          〒000-0000 架空県架空市1-2-3 ｜ NPO法人登録番号：第00000号
+        </p>
+      </div>
+      <p>© 2026 Kodomo Mirai Lab</p>
+    </div>
+  </footer>
+
+</body>
+</html>
