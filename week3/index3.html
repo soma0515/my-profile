@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介カード</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-100 min-h-screen py-16 px-4">
+
+  <h1 class="text-2xl font-bold text-center text-slate-800 mb-10">メンバー紹介</h1>
+
+  <!-- カードを並べるコンテナ -->
+  <!-- 480px以下: flex-col（縦1列） / 481px以上: flex-row（横並び） -->
+  <div class="flex flex-col min-[481px]:flex-row gap-6 items-stretch justify-between max-w-4xl mx-auto">
+
+    <!-- カード1 -->
+    <div class="bg-white rounded-lg shadow p-6 flex-1 flex flex-col items-center text-center">
+      <span class="text-6xl">🧑‍💻</span>
+      <h2 class="text-xl font-bold text-slate-800 mt-4">田中 健</h2>
+      <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+        フロントエンドエンジニア。UIを組むのが好きで、最近はTailwindにハマっています。
+      </p>
+    </div>
+
+    <!-- カード2 -->
+    <div class="bg-white rounded-lg shadow p-6 flex-1 flex flex-col items-center text-center">
+      <span class="text-6xl">🎨</span>
+      <h2 class="text-xl font-bold text-slate-800 mt-4">佐藤 遥</h2>
+      <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+        UI/UXデザイナー。色と余白にこだわる派で、休日はカフェ巡りが趣味です。
+      </p>
+    </div>
+
+    <!-- カード3 -->
+    <div class="bg-white rounded-lg shadow p-6 flex-1 flex flex-col items-center text-center">
+      <span class="text-6xl">⚙️</span>
+      <h2 class="text-xl font-bold text-slate-800 mt-4">鈴木 大輝</h2>
+      <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+        バックエンドエンジニア。API設計が得意で、コーヒーを飲みながらコードを書きます。
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
