@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品一覧 | くらしマルシェ</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <!-- ヘッダー -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+      <h1 class="text-xl font-bold text-slate-800">🛍️ くらしマルシェ</h1>
+      <p class="text-sm text-slate-500 hidden sm:block">毎日の暮らしを、ちょっと豊かに。</p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-lg font-bold text-slate-800 mb-6">商品一覧</h2>
+
+    <!-- 商品グリッド：スマホ1列 / 640px〜2列 / 1024px〜4列 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- 商品カード -->
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🎧</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">ワイヤレスヘッドホン</h3>
+        <p class="text-sm text-slate-500 mt-2">¥8,900</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">☕</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">陶器マグカップ</h3>
+        <p class="text-sm text-slate-500 mt-2">¥1,200</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🧺</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">収納バスケット</h3>
+        <p class="text-sm text-slate-500 mt-2">¥2,400</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🕯️</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">アロマキャンドル</h3>
+        <p class="text-sm text-slate-500 mt-2">¥1,800</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🪴</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">観葉植物（小）</h3>
+        <p class="text-sm text-slate-500 mt-2">¥3,200</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🧴</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">ハンドクリーム</h3>
+        <p class="text-sm text-slate-500 mt-2">¥950</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">📓</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">レザーノート</h3>
+        <p class="text-sm text-slate-500 mt-2">¥2,000</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center transition duration-200 hover:scale-105 hover:shadow-lg">
+        <span class="text-5xl">🧣</span>
+        <h3 class="text-base font-semibold text-slate-800 mt-4">ウールマフラー</h3>
+        <p class="text-sm text-slate-500 mt-2">¥4,500</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="border-t border-slate-200 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center text-xs text-slate-400">
+      © 2026 くらしマルシェ
+    </div>
+  </footer>
+
+</body>
+</html>
