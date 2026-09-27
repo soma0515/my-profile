@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー登録フォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white rounded-lg shadow p-8 w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-6">ユーザー登録</h1>
+
+      <!-- ブラウザ標準のバリデーションは止めて、JSで自前のチェックとエラー表示を行う -->
+      <form id="signupForm" novalidate>
+
+        <!-- 名前 -->
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-bold mb-1">名前</label>
+          <input id="name" type="text" required
+            class="w-full border border-gray-300 rounded px-3 py-2">
+          <p id="nameError" class="text-sm text-red-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-bold mb-1">メールアドレス</label>
+          <input id="email" type="email" required
+            class="w-full border border-gray-300 rounded px-3 py-2">
+          <p id="emailError" class="text-sm text-red-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- パスワード -->
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-bold mb-1">パスワード</label>
+          <input id="password" type="password" required
+            class="w-full border border-gray-300 rounded px-3 py-2">
+          <p id="passwordError" class="text-sm text-red-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- 利用規約同意 -->
+        <div class="mb-4">
+          <label class="flex items-center gap-2 text-sm">
+            <input id="agree" type="checkbox" required>
+            利用規約に同意する
+          </label>
+          <p id="agreeError" class="text-sm text-red-500 mt-1 hidden"></p>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-blue-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 transition">
+          登録
+        </button>
+
+        <!-- 登録完了メッセージ -->
+        <p id="successMessage" class="text-sm text-green-600 mt-4 hidden">登録完了！</p>
+      </form>
+    </div>
+
+    <script>
+      const form = document.querySelector("#signupForm");
+
+      const nameInput = document.querySelector("#name");
+      const emailInput = document.querySelector("#email");
+      const passwordInput = document.querySelector("#password");
+      const agreeInput = document.querySelector("#agree");
+
+      const nameError = document.querySelector("#nameError");
+      const emailError = document.querySelector("#emailError");
+      const passwordError = document.querySelector("#passwordError");
+      const agreeError = document.querySelector("#agreeError");
+
+      const successMessage = document.querySelector("#successMessage");
+
+      // エラーメッセージを表示する関数
+      function showError(errorEl, message) {
+        errorEl.textContent = message;
+        errorEl.classList.remove("hidden");
+      }
+
+      // エラーメッセージを消す関数
+      function hideError(errorEl) {
+        errorEl.textContent = "";
+        errorEl.classList.add("hidden");
+      }
+
+      form.addEventListener("submit", (event) => {
+        // ブラウザのデフォルト送信（ページ遷移）を止める
+        event.preventDefault();
+
+        // 一旦すべてのエラーと成功メッセージを消してからチェックし直す
+        hideError(nameError);
+        hideError(emailError);
+        hideError(passwordError);
+        hideError(agreeError);
+        successMessage.classList.add("hidden");
+
+        // ここではフラグを使わず、それぞれ独立にチェックする。
+        // エラーの出し方は「各入力欄の下に個別表示」を採用した。
+        // 理由：最初の1件だけ出す方式だと、直しては送信を繰り返す
+        // 手間がユーザーにかかってしまう。全部まとめて上に出す方式だと
+        // どの項目のエラーかがひと目でわかりにくい。
+        // 各欄の下に個別表示すれば、一度の送信で全項目の問題が
+        // その場でわかり、修正もしやすいと考えたため。
+        let isValid = true;
+
+        // 名前チェック
+        if (nameInput.value.trim() === "") {
+          showError(nameError, "名前を入力してください");
+          isValid = false;
+        }
+
+        // メールアドレスチェック
+        if (emailInput.value.trim() === "") {
+          showError(emailError, "メールアドレスを入力してください");
+          isValid = false;
+        }
+
+        // パスワードチェック（未入力 → 8文字未満、の順でチェック）
+        if (passwordInput.value.trim() === "") {
+          showError(passwordError, "パスワードを入力してください");
+          isValid = false;
+        } else if (passwordInput.value.length < 8) {
+          showError(passwordError, "パスワードは8文字以上で入力してください");
+          isValid = false;
+        }
+
+        // 利用規約同意チェック
+        if (!agreeInput.checked) {
+          showError(agreeError, "利用規約に同意してください");
+          isValid = false;
+        }
+
+        // すべてOKなら登録完了メッセージを表示
+        if (isValid) {
+          successMessage.classList.remove("hidden");
+        }
+      });
+    </script>
+
+  </body>
+</html>
