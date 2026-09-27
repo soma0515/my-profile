@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チームメンバー一覧</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-2xl font-bold mb-6">チームメンバー一覧</h1>
+
+      <!-- 絞り込みボタン -->
+      <div class="flex gap-2 mb-6">
+        <button data-role="全員" class="filterBtn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">全員</button>
+        <button data-role="エンジニア" class="filterBtn bg-white text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition">エンジニア</button>
+        <button data-role="デザイナー" class="filterBtn bg-white text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition">デザイナー</button>
+      </div>
+
+      <!-- カードを並べるエリア -->
+      <div id="cardArea" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </div>
+
+    <script>
+      // メンバーデータ（並び順は「追加した順」＝入社順を初期値とした。
+      // チーム紹介ページなので、役割やあいうえお順よりも
+      // 「誰が先にチームにいるか」がわかる並びの方が自然だと考えたため）
+      const members = [
+        { name: "田中 太郎", role: "エンジニア", comment: "バックエンドが得意です。よろしくお願いします！" },
+        { name: "佐藤 花子", role: "デザイナー", comment: "UI/UXデザインを担当しています。" },
+        { name: "鈴木 一郎", role: "エンジニア", comment: "フロントエンド歴3年です。" },
+        { name: "高橋 美咲", role: "デザイナー", comment: "イラストを描くのが好きです。" },
+        { name: "伊藤 健太", role: "エンジニア", comment: "インフラ周りを担当しています。" },
+      ];
+
+      const cardArea = document.querySelector("#cardArea");
+      const filterButtons = document.querySelectorAll(".filterBtn");
+
+      // メンバー配列を受け取ってカードを描画する関数
+      function renderCards(list) {
+        // 中身を空にしてから作り直す
+        cardArea.innerHTML = "";
+
+        list.forEach((member) => {
+          const card = document.createElement("div");
+          card.className = "bg-white rounded-lg shadow p-4";
+
+          const name = document.createElement("h2");
+          name.textContent = member.name;
+          name.className = "font-bold text-lg mb-1";
+
+          const role = document.createElement("p");
+          role.textContent = member.role;
+          role.className = "text-sm text-blue-600 mb-2";
+
+          const comment = document.createElement("p");
+          comment.textContent = member.comment;
+          comment.className = "text-sm text-gray-600";
+
+          card.appendChild(name);
+          card.appendChild(role);
+          card.appendChild(comment);
+          cardArea.appendChild(card);
+        });
+      }
+
+      // 絞り込みボタンの見た目を切り替える関数
+      function setActiveButton(activeBtn) {
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("bg-blue-600", "text-white");
+          btn.classList.add("bg-white", "text-gray-700");
+        });
+        activeBtn.classList.remove("bg-white", "text-gray-700");
+        activeBtn.classList.add("bg-blue-600", "text-white");
+      }
+
+      // 各ボタンにクリックイベントを設定
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const role = btn.dataset.role;
+
+          if (role === "全員") {
+            renderCards(members);
+          } else {
+            const filtered = members.filter((member) => member.role === role);
+            renderCards(filtered);
+          }
+
+          setActiveButton(btn);
+        });
+      });
+
+      // 初期表示（全員分を表示）
+      renderCards(members);
+    </script>
+
+  </body>
+</html>
